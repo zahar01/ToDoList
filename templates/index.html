@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="/my/" method="post">
+        {% csrf_token %}
+        <label for="1">Текст:</label>
+        <input name="key" id="1" type="text" />
+        <input type = "submit">
+    </form>
+
+    {% for items in list %}
+        <h1>{{ items }}</h1>
+            <form>
+        {% csrf_token %}
+        <input type="submit" class="btn" value="Done" name="mybtn">
+            <input type="hidden" value="{{ items }}" name="hid"/>
+            </form>
+
+            <form>
+        {% csrf_token %}
+        <input type="submit" class="btn" value="Delete" name="mybtn">
+            <input type="hidden" value="{{ items }}" name="hid"/>
+            </form>
+    {% endfor %}
+</body>
+</html>
